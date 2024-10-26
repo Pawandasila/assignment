@@ -7,15 +7,27 @@
   --foreground: #171717;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.categories-slider .swiper-button-next,
+.categories-slider .swiper-button-prev {
+  color: #ffffff;
+  background: rgba(0, 125, 252, 0.9);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  backdrop-filter: blur(4px);
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+.categories-slider .swiper-button-next:after,
+.categories-slider .swiper-button-prev:after {
+  font-size: 16px;
+}
+
+.categories-slider .swiper-button-next:hover,
+.categories-slider .swiper-button-prev:hover {
+  background: rgba(0, 125, 252, 1);
+}
+
+.categories-slider .swiper-button-disabled {
+  opacity: 0.35;
+  pointer-events: none;
 }
