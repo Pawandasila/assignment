@@ -154,7 +154,7 @@ const Category = () => {
           }}
           loop={true}
           breakpoints={{
-            480: {
+            320: {
               slidesPerView: 2,
               spaceBetween: 16,
             },
