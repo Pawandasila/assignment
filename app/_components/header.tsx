@@ -4,9 +4,14 @@ import React, { useState } from "react";
 
 const Header = () => {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
+  const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const toggleDropdown = () => {
     setDropdownOpen(!isDropdownOpen);
+  };
+
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!isMobileMenuOpen);
   };
 
   return (
@@ -44,8 +49,13 @@ const Header = () => {
             </form>
 
             {/* Navigation */}
-            <nav aria-label="Global" className="hidden md:block">
-              <ul className="flex items-center gap-8 text-sm">
+            <nav
+              aria-label="Global"
+              className={`${
+                isMobileMenuOpen ? "block" : "hidden"
+              } absolute top-20 left-0 w-full bg-gray-900 md:static md:block md:w-auto`}
+            >
+              <ul className="flex flex-col items-center gap-4 p-4 md:flex-row md:gap-8 md:p-0 text-sm">
                 <li>
                   <a
                     className="text-gray-300 transition hover:text-rose-500"
@@ -164,7 +174,10 @@ const Header = () => {
 
             {/* Mobile Menu Button */}
             <div className="block md:hidden">
-              <button className="rounded-lg bg-gray-800 p-2.5 text-gray-300 transition hover:bg-gray-700 hover:text-primary">
+              <button
+                onClick={toggleMobileMenu}
+                className="rounded-lg bg-gray-800 p-2.5 text-gray-300 transition hover:bg-gray-700 hover:text-primary"
+              >
                 <span className="sr-only">Toggle menu</span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
